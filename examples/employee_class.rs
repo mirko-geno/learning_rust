@@ -12,7 +12,7 @@ impl Employee{
 }
 
 fn main(){
-    let mut employees = Vec::new();
+    let mut employees: Vec<Employee> = Vec::new();
     employees.push(Employee{name: String::from("Mirko"), age:17, salary:891285.0, balance:0.0});
     employees.push(Employee{name: String::from("Leo"), age:17, salary:402589.0, balance:0.0});
     employees.push(Employee{name: String::from("Tiyu"), age:17, salary:28513.0, balance:0.0});
