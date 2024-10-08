@@ -14,7 +14,8 @@ fn main(){
         i_guess = match guess.trim().parse(){
             Ok(num) => num,
             Err(_) =>{
-                println!("Failed, {}", guess);
+                println!("Enter only numbers");
+                guess.clear();
                 continue}
         };
         guess.clear();
