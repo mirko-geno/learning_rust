@@ -6,6 +6,10 @@ struct Employee {
 }
 
 impl Employee{
+    fn new(name: String, age: u8, salary: f32) -> Employee{
+        Employee{name, age, salary, balance: 0.0}
+    }
+
     fn pay(&mut self){
         self.balance += self.salary;
     }
@@ -13,9 +17,9 @@ impl Employee{
 
 fn main(){
     let mut employees: Vec<Employee> = Vec::new();
-    employees.push(Employee{name: String::from("Mirko"), age:17, salary:891285.0, balance:0.0});
-    employees.push(Employee{name: String::from("Leo"), age:17, salary:402589.0, balance:0.0});
-    employees.push(Employee{name: String::from("Tiyu"), age:17, salary:28513.0, balance:0.0});
+    employees.push(Employee::new(String::from("Mirko"), 17, 891285.0));
+    employees.push(Employee::new(String::from("Leo"), 17, 402589.0));
+    employees.push(Employee::new(String::from("Tiyu"), 17, 28513.0));
 
     employees[0].pay();
 
