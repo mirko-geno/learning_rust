@@ -11,5 +11,5 @@ fn first_word(s: &String) -> &str {
 fn main(){
     let string: String = String::from("Mirko es mi nombre");
     let slice: &str = first_word(&string);
-    println!("{slice}")
+    println!("{slice}");
 }
