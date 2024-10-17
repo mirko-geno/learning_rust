@@ -1,3 +1,4 @@
+#[derive(Debug)]
 enum Gender {
     Rock,
     Metal,
@@ -8,13 +9,24 @@ enum Gender {
 
 enum Selection {
     Playlist,
-    Song(Gender)
+    Song(Gender) {
+        println!("{:?}", )
+    }
 }
 
 
+fn play() {
+
+}
+
 fn main() {
     let select: Selection = Selection::Song(Gender::Rap);
-    match  select{
+    match select {
+        Selection::Playlist => 0,
+        Selection::Song(gender) => {
+            println!("Playing {:?}", gender);
+            1
+        }
         
     }
 
