@@ -22,7 +22,15 @@ impl Car {
 }
 
 
+enum SpreadsheetCell {
+    Int(i32),
+    Float(f32),
+    Text(String)
+}
+
+
 fn main() {
+    // Regular usage of vectors with only one datatype
     let mut vect: Vec<Car> = vec![Car::new("Mitsubishi Eclipse", "Chrysler 420A", 253)];
     vect.push(Car::new("Lamborghini Aventador", "L539 V12", 350));
 
@@ -33,5 +41,22 @@ fn main() {
     match sec_car_ref {
         Some(car) => println!("My brother's favourite car is {}", car.name),
         None => println!("Indexing out of bounds")
+    }
+
+    let row: Vec<SpreadsheetCell> = vec![
+        SpreadsheetCell::Int(20),
+        SpreadsheetCell::Float(-54.21),
+        SpreadsheetCell::Text(String::from("Hola me llamo Mirko"))
+    ];
+
+    match row.get(0) {
+        Some(data) => {
+            match data {
+                SpreadsheetCell::Int(value) => println!("Value is {value}"),
+                SpreadsheetCell::Float(value) => println!("Value is {value}"),
+                SpreadsheetCell::Text(value) => println!("Value is {value}"),
+            }
+        },
+        None => ()
     }
 }
