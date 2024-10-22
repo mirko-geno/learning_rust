@@ -23,4 +23,9 @@ fn main(){
     // Arrays [fixed data type ; length]
     let arr: [f64; 5] = [264.2, 6445.0, -1758.0, 2.0, -87.3];
     let stablished_arr: [i32; 5] = [2; 5]; // [2, 2, 2, 2, 2]
+
+    // Vectors
+    let v: Vec<u8> = Vec::new();
+    // vectors can be instantiated using the macro vec! as follows:
+    let vec = vec![4, 5, 6];
 }
