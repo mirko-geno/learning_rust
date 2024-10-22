@@ -24,6 +24,13 @@ fn main(){
     let arr: [f64; 5] = [264.2, 6445.0, -1758.0, 2.0, -87.3];
     let stablished_arr: [i32; 5] = [2; 5]; // [2, 2, 2, 2, 2]
 
+    // String literals  Stored in binaries
+    let string_literal: &str = "My name is Mirko";
+    // Strings  Stored in stack: ptr to heap, length, capacity  Stored in heap: content 
+    let string: String = String::from("My name is Mirko");
+    // String slices    Stored in stack: ptr to starting heap point of String variable, length
+    let string_slice: &str = &string[11..];
+
     // Vectors
     let v: Vec<u8> = Vec::new();
     // vectors can be instantiated using the macro vec! as follows:
