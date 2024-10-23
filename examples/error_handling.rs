@@ -20,7 +20,6 @@ fn read_username_from_file(path: &str) -> Result<String, io::Error> {
         Err(e) => Err(e),
     }
 }
-*/
 
 
 fn read_username_from_file(path: &str) -> Result<String, io::Error> {
@@ -29,7 +28,15 @@ fn read_username_from_file(path: &str) -> Result<String, io::Error> {
     username_file.read_to_string(&mut username)?;
     Ok(username)
 }
+*/
 
+
+fn read_username_from_file(path: &str) -> Result<String, io::Error> {
+    let mut username: String = String::new();
+
+    File::open(path)?.read_to_string(&mut username)?;
+    Ok(username)
+}
 
 fn main() {
     let user = read_username_from_file("examples/examp_files/username.txt");
