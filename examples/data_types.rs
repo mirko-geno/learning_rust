@@ -41,4 +41,19 @@ fn main(){
     // Hash maps    work like dictionaries but can only store one data type at the same time
     let mut map = HashMap::new();
     map.insert(String::from("Key"), String::from("Value"));
+
+    // Option enum is useful to safely asume value we are working with aren't null
+    // because null values will fall under None. 
+    enum Option<T> {
+        Some(T), // T stand for any data type that falls as Some's content
+        None 
+    }
+
+    // Result enum lets us distinguish between data and
+    // errors making the programmer able to handle them
+    enum Result<T, E> {
+        Ok(T),
+        Err(E) // E stands for any error
+    }
+
 }
