@@ -1,5 +1,4 @@
-use traits::{Summary, Tweet, NewsArticle};
-
+use traits::{notify, NewsArticle, Point, Summary, Tweet};
 
 fn main() {
     let tweet = Tweet {
@@ -17,4 +16,9 @@ fn main() {
         author: String::from("The mysterious Papu")
     };
     println!("1 new article: {}", article.summarize());
+
+    notify(&tweet);
+
+    let point: Point<f32> = Point::new(2.0, 3.5);
+    println!("{}", point);
 }

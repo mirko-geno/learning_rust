@@ -35,3 +35,20 @@ impl Summary for Tweet {
     }
 }
 
+
+pub struct Point<T> {
+    x: T,
+    y: T
+}
+
+impl <T> Point<T> {
+    pub fn new(x: T, y: T) -> Point<T> {
+        Point{ x, y }
+    }
+}
+
+impl <T> std::fmt for Point<T> {}
+
+pub fn notify(item: &impl Summary) {
+    println!("New notification: {}", item.summarize())
+}
