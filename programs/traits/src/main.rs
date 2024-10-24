@@ -1,24 +1,34 @@
-use traits::{notify, NewsArticle, Point, Summary, Tweet};
+use traits::{Summary, Notif, Tweet, NewsArticle, Point};
 
 fn main() {
-    let tweet = Tweet {
-        username: String::from("GianTV"),
-        content: String::from("Seeee paaa es esaa"),
-        reply: false,
-        retweet: true,
-    };
-    println!("1 new tweet: {}", tweet.summarize());
+    let mut notif_vec = Vec::new();
 
-    let article: NewsArticle = NewsArticle{
-        headline: String::from("Bananirou died"),
-        content: String::from("After multiple hours of streaming he had a heart attack"),
-        location: String::from("Tigre, Buenos Aires, Argentina"),
-        author: String::from("The mysterious Papu")
-    };
-    println!("1 new article: {}", article.summarize());
+    notif_vec.push(
+        Notif::Tweet(Tweet {
+            username: String::from("GianTV"),
+            content: String::from("Seeee paaa es esaa"),
+            reply: false,
+            retweet: true,
+        })
+    );
 
-    notify(&tweet);
+    notif_vec.push(
+        Notif::NewsArticle(NewsArticle{
+            headline: String::from("Bananirou died"),
+            content: String::from("After multiple hours of streaming he had a heart attack"),
+            location: String::from("Tigre, Buenos Aires, Argentina"),
+            author: String::from("The mysterious Papu")
+        })
+    );
+    
+    for notif in notif_vec {
+        match notif {
+            Notif::Tweet(tweet) => println!("1 new tweet: {}", tweet.summarize()),
+            Notif::NewsArticle(article) => println!("1 new article: {}", article.summarize()),
+            Notif::None => println!("There are no notifications")
+        }
+    }
 
-    let point: Point<f32> = Point::new(2.0, 3.5);
-    println!("{}", point);
+    let point: Point<u8> = Point::new(5, 2);
+    point.cmp_display();
 }

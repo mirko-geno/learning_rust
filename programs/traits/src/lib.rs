@@ -1,3 +1,5 @@
+use ::std::fmt::Display;
+
 /*
 We can define a default behaviour for a trait, and, if necessary,
 can be modified according the implementation. In the example below
@@ -13,6 +15,13 @@ pub trait Summary {
 }
 
 
+pub enum Notif {
+    Tweet(Tweet),
+    NewsArticle(NewsArticle),
+    None
+}
+
+
 pub struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -21,6 +30,7 @@ pub struct NewsArticle {
 }
 
 impl Summary for NewsArticle {}
+
 
 pub struct Tweet {
     pub username: String,
@@ -41,14 +51,18 @@ pub struct Point<T> {
     y: T
 }
 
-impl <T> Point<T> {
-    pub fn new(x: T, y: T) -> Point<T> {
-        Point{ x, y }
+impl<T> Point<T> {
+    pub fn new(x: T, y: T) -> Self {
+        Self { x, y }
     }
 }
 
-impl <T> std::fmt for Point<T> {}
-
-pub fn notify(item: &impl Summary) {
-    println!("New notification: {}", item.summarize())
+impl <T: Display + PartialOrd> Point<T> {
+    pub fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("x is larger than y: {}>{}", self.x, self.y);
+        } else {
+            println!("y is larger than x: {}>{}", self.y, self.x);
+        }
+    }
 }
