@@ -21,6 +21,33 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "coin_match"
 version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
+name = "dangling"
+version = "0.1.0"
+
+[[package]]
+name = "data_types"
+version = "0.1.0"
+
+[[package]]
+name = "employee_class"
+version = "0.1.0"
+
+[[package]]
+name = "error_handling"
+version = "0.1.0"
+
+[[package]]
+name = "files_panic"
+version = "0.1.0"
+
+[[package]]
+name = "generics"
+version = "0.1.0"
 
 [[package]]
 name = "getrandom"
@@ -34,6 +61,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "guessing_game"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
+name = "hash_maps"
+version = "0.1.0"
+
+[[package]]
+name = "hmap_example"
+version = "0.1.0"
+
+[[package]]
+name = "if-let_vs_match"
+version = "0.1.0"
+
+[[package]]
+name = "indexing_strings"
+version = "0.1.0"
+
+[[package]]
 name = "learning_rust"
 version = "0.1.0"
 dependencies = [
@@ -45,6 +95,18 @@ name = "libc"
 version = "0.2.159"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "561d97a539a36e26a9a5fad1ea11a3039a67714694aaa379433e580854bc3dc5"
+
+[[package]]
+name = "loops"
+version = "0.1.0"
+
+[[package]]
+name = "option_match"
+version = "0.1.0"
+
+[[package]]
+name = "ownership"
+version = "0.1.0"
 
 [[package]]
 name = "ppv-lite86"
@@ -104,6 +166,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "shadowing"
+version = "0.1.0"
+
+[[package]]
+name = "slices"
+version = "0.1.0"
+
+[[package]]
+name = "spotify_enum"
+version = "0.1.0"
+
+[[package]]
 name = "syn"
 version = "2.0.79"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -119,6 +193,10 @@ name = "unicode-ident"
 version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e91b56cd4cadaeb79bbf1a5645f6b4f8dc5bde8834ad5894a8db35fda9efa1fe"
+
+[[package]]
+name = "vectors"
+version = "0.1.0"
 
 [[package]]
 name = "wasi"
