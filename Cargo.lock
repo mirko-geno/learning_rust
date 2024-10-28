@@ -26,10 +26,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dangling"
-version = "0.1.0"
-
-[[package]]
 name = "data_types"
 version = "0.1.0"
 
