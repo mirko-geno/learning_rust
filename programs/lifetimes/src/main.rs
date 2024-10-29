@@ -1,3 +1,5 @@
+use lifetimes::Person;
+
 fn get_longest<'a>(str1: &'a str, str2: &'a str) -> Option<&'a str> {
     if str1.len() > str2.len() {
         Some(str1)
@@ -24,4 +26,7 @@ fn main() {
 
     print_longest(&name1, &name2);
     print_longest(&name1, &name3);
+
+    let user: Person = Person::new(String::from("Gian"), 23);
+    println!("{}", user.return_name());
 }
