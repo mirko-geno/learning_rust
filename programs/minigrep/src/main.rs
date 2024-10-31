@@ -1,19 +1,20 @@
-use std::{env, fs};
+use std::{env, process,error::Error};
+use minigrep::{Config, run};
 
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    dbg!(&args);
+    // dbg!(&args); // command to verify the content of args
+    
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
+    println!("Searching for {}", config.query);
+    println!("In file {}", config.file_path);
 
-    // Since &args[0] is the location of the binary we start taking
-    // values from &args[1]
-    let query = &args[1];
-    let file_path = &args[2];
-
-    println!("Searching for {query}");
-    println!("In file {file_path}");
-
-    let content = fs::read_to_string(file_path)
-                                .expect("Couldn't be able to read the file");
-    println!("With text:\n{content}");
+    if let Err(e) = run(config) {
+        println!("Application error: {e}");
+        process::exit(1)
+    }
 }
