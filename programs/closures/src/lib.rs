@@ -3,7 +3,21 @@ pub enum ShirtColor {
     Red,
     Blue
 }
+/*
+The unwrap_or_else method takes two parameters:
+'self' (the 'Option' type variable that needs to be unwrapped) and
+'f' which is a closure to a function that will execute in case 'Option' is None.
 
+impl<T> Option<T> {
+    pub fn unwrap_or_else<F>(self, f: F) -> T
+    where F: FnOnce() -> T {
+        match self {
+                Some(x) => x,
+                None => f()
+        }
+    }
+}
+*/
 
 pub struct Inventory {
     pub shirts: Vec<ShirtColor>
