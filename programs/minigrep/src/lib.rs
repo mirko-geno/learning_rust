@@ -8,15 +8,20 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        // Since &args[0] is the location of the binary we start taking
-        // values from &args[1]
-        if args.len() < 3 {
-            return Err("not enough arguments");
-        }
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        // Since args[0] is the location of the binary
+        // we start taking values from args[1]
+        args.next();
 
-        let query = args[1].clone();
-        let file_path = args[2].clone();
+        let query = match args.next() {
+            Some(query) => query,
+            None => return Err("Didn't get a query string")
+        };
+
+        let file_path = match args.next() {
+            Some(file_path) => file_path,
+            None => return Err("Didn't get a query string")
+        };
         
         let ignore_case = env::var("IGNORE_CASE").is_ok();
 
