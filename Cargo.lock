@@ -186,6 +186,10 @@ name = "slices"
 version = "0.1.0"
 
 [[package]]
+name = "smart_pointers"
+version = "0.1.0"
+
+[[package]]
 name = "spotify_enum"
 version = "0.1.0"
 
