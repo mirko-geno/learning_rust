@@ -56,4 +56,12 @@ fn main(){
         Err(E) // E stands for any error
     }
 
+    // Box<T> stores a kind of data into the heap
+    let b = Box::new(30);
+
+    // In order to access or modify it's content '*' is used
+    let mut b = Box::new(12);
+    *b *= 2;
+    assert_eq!(24, *b);
+
 }
