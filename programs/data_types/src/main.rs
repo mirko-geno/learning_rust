@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::rc::Rc;
 
 // For constant variables (same as C #DEFINES)
 const BANANA: u8 = 4;
@@ -38,7 +38,8 @@ fn main(){
     // vectors can be instantiated using the macro vec! as follows:
     let vec = vec![4, 5, 6];
 
-    // Hash maps    work like dictionaries but can only store one data type at the same time
+    // Hash maps work like dictionaries but can only store one data type at the same time
+    use std::collections::HashMap;
     let mut map = HashMap::new();
     map.insert(String::from("Key"), String::from("Value"));
 
