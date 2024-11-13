@@ -1,7 +1,23 @@
 use std::rc::{Rc, Weak};
 use std::cell::RefCell;
-use std::collections::HashMap;
 
+
+
+
+#[derive(Debug)]
+pub struct Node {
+    pub value: i32,
+    pub parent: RefCell<Weak<Node>>, // Weak works like an Option<T>
+    pub children: RefCell<Vec<Rc<Node>>>,
+}
+
+
+
+
+
+
+/*
+use std::collections::HashMap;
 
 #[derive(Debug)]
 pub struct Node {
@@ -32,35 +48,6 @@ impl Node {
                 });
             },
             None => {self.children = Some(RefCell::new(HashMap::from_iter(children)));}
-        }
-    }
-}
-
-
-
-
-
-/*
-
-#[derive(Debug)]
-pub struct Node {
-    pub value: i32,
-    pub parent: Option<Weak<Node>>,
-    pub children: Option<HashMap<String, Rc<Node>>>
-}
-
-impl Node {
-    pub fn new(value: i32, parent: Option<Weak<Node>>, children: Option<(String, Rc<Node>)>) -> Node {
-        Node {
-            value,
-            parent,
-            children: match children {
-                Some((string, node)) => Some(HashMap::from([(
-                    string,
-                    node
-                )])),
-                None => None
-            }
         }
     }
 }
