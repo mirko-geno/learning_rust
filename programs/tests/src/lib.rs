@@ -2,7 +2,7 @@ pub fn add(first: usize, second: usize) -> usize {
     first + second
 }
 
-pub fn greeting(name: &str) -> String {
+pub fn greeting(_name: &str) -> String {
     String::from("Helloooo")
 }
 
