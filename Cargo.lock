@@ -113,6 +113,10 @@ name = "lifetimes"
 version = "0.1.0"
 
 [[package]]
+name = "locks"
+version = "0.1.0"
+
+[[package]]
 name = "loops"
 version = "0.1.0"
 
