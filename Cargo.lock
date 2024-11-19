@@ -198,6 +198,13 @@ name = "ref_cycle"
 version = "0.1.0"
 
 [[package]]
+name = "roulette"
+version = "0.1.0"
+dependencies = [
+ "rand",
+]
+
+[[package]]
 name = "shadowing"
 version = "0.1.0"
 
