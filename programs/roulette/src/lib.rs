@@ -19,7 +19,7 @@ impl User {
         let mut success = rng.gen_bool(PROB_ROJO);
 
         let mut _counter = 1;
-        let profit = bet * 2.0;
+        let profit = bet;
         let mut register = bet;
 
         while !success && self.balance - register > bet*2.0 && _counter <= cap {
@@ -34,6 +34,7 @@ impl User {
             self.balance += profit;
         } else if _counter > cap {
             println!("Capped!");
+            self.balance -= register;
         } else {
             self.balance -= register;
             println!("Not enough founds (${}) to pay the next bet (${})", self.balance, bet*2.0);
