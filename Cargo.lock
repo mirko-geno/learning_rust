@@ -244,6 +244,10 @@ name = "threads"
 version = "0.1.0"
 
 [[package]]
+name = "trait_objects"
+version = "0.1.0"
+
+[[package]]
 name = "traits"
 version = "0.1.0"
 
