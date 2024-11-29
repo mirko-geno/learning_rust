@@ -12,6 +12,8 @@ impl Post {
     pub fn add_text(&mut self, text: &str) {
         if let Post::Draft(t) = self {
             t.push_str(text);
+        } else {
+            panic!("Post is not Draft variant")
         }
     }
 
