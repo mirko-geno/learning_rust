@@ -7,6 +7,10 @@ name = "ai_struct"
 version = "0.1.0"
 
 [[package]]
+name = "blog"
+version = "0.1.0"
+
+[[package]]
 name = "borrowing"
 version = "0.1.0"
 
