@@ -88,10 +88,6 @@ name = "hmap_example"
 version = "0.1.0"
 
 [[package]]
-name = "if-let_vs_match"
-version = "0.1.0"
-
-[[package]]
 name = "indexing_strings"
 version = "0.1.0"
 
@@ -142,6 +138,10 @@ version = "0.1.0"
 
 [[package]]
 name = "ownership"
+version = "0.1.0"
+
+[[package]]
+name = "pattern_matching"
 version = "0.1.0"
 
 [[package]]
