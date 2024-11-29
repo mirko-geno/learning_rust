@@ -1,3 +1,10 @@
+/*
+Using std::mem::take allows taking transforming a mutable
+reference to an owned value like shown in the code below:
+*/
+use std::mem;
+
+
 pub enum Post {
     Draft(String),
     WaitingRev(String),
@@ -19,7 +26,7 @@ impl Post {
 
     pub fn request_review(&mut self) {
         if let Post::Draft(t) = self {
-            *self = Post::WaitingRev(t.to_string())
+            *self = Post::WaitingRev(mem::take(t))
         } else {
             panic!("Post is not Draft variant");
         }
@@ -27,7 +34,7 @@ impl Post {
 
     pub fn approve(&mut self) {
         if let Post::WaitingRev(t) = self {
-            *self = Post::Published(t.to_string());
+            *self = Post::Published(mem::take(t));
         } else {
             panic!("Post is not WaitingRev variant");
         }
