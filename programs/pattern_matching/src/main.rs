@@ -23,19 +23,23 @@ fn main() {
         println!("The maximum is configured to be {max}");
     }
 
+
     //while let and for loops are used for pattern matching and are quite the same:
     let mut stack = vec!(1, 2, 3);
     while let Some(top) = stack.pop() {
         println!("Pop {top}");
     }
 
+
     let v = vec!['a', 'b', 'c'];
     for (index, value) in v.iter().enumerate() {
         println!("{value} is at index {index}");
     }
 
+
     let point = (3, 5);
     print_coordinates(&point);
+
 
     // Multiple pattern matching:
     let number = 2;
@@ -45,17 +49,20 @@ fn main() {
         _ => println!("anything")
     }
 
+
     let number = 5;
     match number {
         1..= 5 => println!("Number is between 1 and 5"),
         _ => println!("Whatever")
     }
 
+
     // Pattern matching can also be used to destructure structs, tuples, enums, etc
     struct Point {
         x: i32,
         y: i32,
     }
+
 
     let p = Point { x: 0, y: 7 };
     let Point { x: a, y: b } = p;
@@ -73,5 +80,41 @@ fn main() {
         Point {x: 0, y: 1..=10} => println!("On the y axis between 1 and 10 ({y})"),
         Point { x: 0, y } => println!("On the y axis at {y}"),
         Point { x, y } => println!("On neither axis: ({x}, {y})")
+    }
+
+    #[allow(dead_code)]
+    enum MatchResult {
+        Win(u32, u32),
+        Lose(u32, u32),
+        Draw
+    }
+
+    let result = MatchResult::Win(3, 0);
+    match result {
+        MatchResult::Win(w, l) => println!("Local team won! \nresult: {w} - {l}"),
+        MatchResult::Lose(l, w) => println!("Local team lost! \n: {l} - {w}"),
+        MatchResult::Draw => println!("Draw!")
+    }
+
+
+    #[allow(dead_code)]
+    enum Color {
+        Rgb(u8, u8, u8),
+        Hsv(i32, i32, i32),
+    }
+
+    struct Screen {
+        resolution: (u32, u32),
+        color: Color
+    }
+
+    let screen = Screen {
+        resolution: (1920, 1080),
+        color: Color::Rgb(2, 219, 59)
+    };
+
+    match screen {
+        Screen {resolution: (1920, 1080), color: Color::Rgb(_r, _g, _b)} => println!("The screen has the default specs"),
+        _ => println!("The screen doesn't have the default specs")
     }
 }
