@@ -71,13 +71,14 @@ fn main() {
     assert_eq!(7, b);
 
     // Better approach
-    let Point { x, y } = p;
+    let Point { x, y: _y } = p;
     assert_eq!(0, x);
-    assert_eq!(7, y);
+    assert_eq!(7, _y);
 
+    // The '@' symbol is used to assign the value when comparing to a range
     match p {
         Point {x, y: 0} => println!("On the x axis at {x}"),
-        Point {x: 0, y: 1..=10} => println!("On the y axis between 1 and 10 ({y})"),
+        Point {x: 0, y: y@ 1..=10} => println!("On the y axis between 1 and 10 ({y})"),
         Point { x: 0, y } => println!("On the y axis at {y}"),
         Point { x, y } => println!("On neither axis: ({x}, {y})")
     }
