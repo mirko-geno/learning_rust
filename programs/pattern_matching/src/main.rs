@@ -117,4 +117,28 @@ fn main() {
         Screen {resolution: (1920, 1080), color: Color::Rgb(_r, _g, _b)} => println!("The screen has the default specs"),
         _ => println!("The screen doesn't have the default specs")
     }
+
+
+    // The '..' syntax allows ignoring a range of values
+    #[allow(dead_code)]
+    struct Point3D {
+        x: i32,
+        y: i32,
+        z: i32
+    }
+
+    let p_3d = Point3D { x: 6, y: 7, z: 10 };
+
+    match p_3d {
+        Point3D { x: 0..=3, ..} => println!("X value between 0 and 3, x: {x}"),
+        Point3D {x: 4..=10, ..} => println!("X bewtwwn 4 and 10, x: {x}"),
+        Point3D {..} => println!("Any other case")
+    }
+
+    
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, .., last) => println!("Some numbers: {first}, {last}")
+    }
 }
