@@ -36,4 +36,42 @@ fn main() {
 
     let point = (3, 5);
     print_coordinates(&point);
+
+    // Multiple pattern matching:
+    let number = 2;
+    match number {
+        1 | 2 => println!("Number is 1 or 2"),
+        3 => println!("Number is 3"),
+        _ => println!("anything")
+    }
+
+    let number = 5;
+    match number {
+        1..= 5 => println!("Number is between 1 and 5"),
+        _ => println!("Whatever")
+    }
+
+    // Pattern matching can also be used to destructure structs, tuples, enums, etc
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+
+    let p = Point { x: 0, y: 7 };
+    let Point { x: a, y: b } = p;
+
+    assert_eq!(0, a);
+    assert_eq!(7, b);
+
+    // Better approach
+    let Point { x, y } = p;
+    assert_eq!(0, x);
+    assert_eq!(7, y);
+
+    match p {
+        Point {x, y: 0} => println!("On the x axis at {x}"),
+        Point {x: 0, y: 1..=10} => println!("On the y axis between 1 and 10 ({y})"),
+        Point { x: 0, y } => println!("On the y axis at {y}"),
+        Point { x, y } => println!("On neither axis: ({x}, {y})")
+    }
 }
