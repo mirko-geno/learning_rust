@@ -65,4 +65,10 @@ fn main(){
     *b *= 2;
     assert_eq!(24, *b);
 
+    
+    // Raw pointers (inmutable and mutable)
+    let mut num: i32 = 5;
+    let _r1 = &num as *const i32;
+    let _r2 = &mut num as *mut i32;
+
 }
