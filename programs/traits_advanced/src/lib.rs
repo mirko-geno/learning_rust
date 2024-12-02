@@ -14,10 +14,10 @@ impl Point {
 impl Add for Point {
     type Output = Point;
 
-    fn add(self, other: Self) -> Self::Output {
+    fn add(self, rhs: Self) -> Self::Output {
         Point {
-            x: self.x + other.x,
-            y: self.y + other.y
+            x: self.x + rhs.x,
+            y: self.y + rhs.y
         }
     }
 }
