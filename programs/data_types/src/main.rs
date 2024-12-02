@@ -71,4 +71,9 @@ fn main(){
     let _r1 = &num as *const i32;
     let _r2 = &mut num as *mut i32;
 
+
+    // Global variables are called static, and are
+    // a reference of 'static lifetime
+    static HELLO_WORLD: &str = "Hello World";
+
 }
