@@ -16,15 +16,18 @@ fn main(){
     // char literals use single quotes and utf-8 encoding
     let ch: char = 'M';
 
+
     // Tuples
     let tup: (u8, f64, i16, String, (u8,f32)) = (2, 7.5, -2040, String::from("Banana"), (3, -83.2));
     // Tuple destructuring
     let (u_int, double, s_int, string, (sub_u_int, sub_float)) = tup;
     println!("{}", sub_u_int);
 
+
     // Arrays [fixed data type ; length]
     let arr: [f64; 5] = [264.2, 6445.0, -1758.0, 2.0, -87.3];
     let stablished_arr: [i32; 5] = [2; 5]; // [2, 2, 2, 2, 2]
+
 
     // String literals  Stored in binaries
     let string_literal: &str = "My name is Mirko";
@@ -33,15 +36,34 @@ fn main(){
     // String slices    Stored in stack: ptr to starting heap point of String variable, length
     let string_slice: &str = &string[11..];
 
+
     // Vectors
     let v: Vec<u8> = Vec::new();
     // vectors can be instantiated using the macro vec! as follows:
     let vec = vec![4, 5, 6];
 
+
+    // Structs can have any quantity of fields of any type 
+    struct MyStruct<T> {
+        field0: String,
+        field1: T,
+        field2: T
+    }
+
+    // To instantiate a struct
+    let my_struct = MyStruct {
+        field0: String::from("Mirko"),
+        field1: 5,
+        field2: 8
+    };
+
+
     // Hash maps work like dictionaries but can only store one data type at the same time
     use std::collections::HashMap;
+
     let mut map = HashMap::new();
     map.insert(String::from("Key"), String::from("Value"));
+
 
     // Option enum is useful to safely asume value we are working with aren't null
     // because null values will fall under None. 
@@ -56,6 +78,7 @@ fn main(){
         Ok(T),
         Err(E) // E stands for any error
     }
+
 
     // Box<T> stores a kind of data into the heap
     let b = Box::new(30);
@@ -76,4 +99,15 @@ fn main(){
     // a reference of 'static lifetime
     static HELLO_WORLD: &str = "Hello World";
 
+
+    // All fields of an union share common storage 
+    union MyUnion {
+        field0: u32,
+        field1: f32
+    }
+
+    let my_union = MyUnion { field0: 25 };
+
+    // Accessing an union's field is unsafe
+    let field = unsafe {my_union.field0};
 }
