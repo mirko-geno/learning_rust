@@ -3,6 +3,9 @@ use std::rc::Rc;
 // For constant variables (same as C #DEFINES)
 const BANANA: u8 = 4;
 
+// 'type' keyword creates an alias based on a datatype
+type Kilometers = i32;
+
 fn main(){
     // boolean types: true and false (one byte in size)
     let t= true;
