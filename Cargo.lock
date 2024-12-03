@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "adv_func_clos"
+version = "0.1.0"
+
+[[package]]
 name = "ai_struct"
 version = "0.1.0"
 
