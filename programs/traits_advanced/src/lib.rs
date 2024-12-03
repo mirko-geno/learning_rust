@@ -1,4 +1,4 @@
-use std::ops::{Add, Sub};
+use std::ops::{Add, Deref, Sub};
 use std::fmt;
 
 pub struct Point {
@@ -104,3 +104,19 @@ pub trait OutlinePrint: fmt::Display {
 }
 
 impl OutlinePrint for Point {}
+
+pub struct Wrapper(pub Vec<String>);
+
+impl fmt::Display for Wrapper {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "[{}]", self.0.join(", "))
+    }
+}
+
+impl Deref for Wrapper {
+    type Target = Vec<String>;
+    
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}

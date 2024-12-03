@@ -1,4 +1,4 @@
-use traits_advanced::{Animal, Dog, Meters, Millimeters, OutlinePrint, Point};
+use traits_advanced::{Animal, Dog, Meters, Millimeters, OutlinePrint, Point, Wrapper};
 
 fn main() {
     let p1 = Point::new(2.0, 5.0);
@@ -28,4 +28,12 @@ fn main() {
     // Point implementing fmt::Display and OutlinePrint
     p3.outline_print();
 
+
+    let w = Wrapper(vec![String::from("Mirko"), String::from("Geno")]);
+    println!("w: {w}");
+    
+    let vec = &*w;
+    for word in vec.iter() {
+        println!("Word after deferencing: {word}");
+    }
 }
