@@ -5,23 +5,39 @@ use std::{
 };
 
 
+fn handle_request(request: String) -> (String, String) {
+    match &request[..] {
+        "GET / HTTP/1.1" => {    
+            (
+                String::from("HTTP/1.1 200 OK"),
+                fs::read_to_string("html/example.html").unwrap()
+            )
+        },
+        "GET /Bana HTTP/1.1" => {
+            (
+                String::from("HTTP/1.1 200 OK"),
+                fs::read_to_string("html/easter_egg.html").unwrap()
+            )
+        },
+        _ => {
+            (
+                String::from("HTTP/1.1 404 NOT FOUND"),
+                fs::read_to_string("html/404.html").unwrap()
+            )
+        }
+    }
+}
+
+
 fn handle_connection(mut stream: TcpStream) {
     let buf_reader = BufReader::new(&mut stream);
-    
-    let http_request: Vec<_> = buf_reader.lines()
-        .map(|result| result.unwrap())
-        .take_while(|line| !line.is_empty())
-        .collect();
+    let request_line= buf_reader.lines().next().unwrap().unwrap();
 
-        let status_line = "HTTP/1.1 200 OK";
-        let contents = fs::read_to_string("example.html").unwrap();
-        let length = contents.len();
+    let (status_line, contents) = handle_request(request_line);
 
-        let response =
-        format!("{status_line}\r\nContent-Length:
-        {length}\r\n\r\n{contents}");
-
-        stream.write_all(response.as_bytes()).unwrap();
+    let length = contents.len();
+    let response = format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
+    stream.write_all(response.as_bytes()).unwrap();
 }
 
 fn main() {
