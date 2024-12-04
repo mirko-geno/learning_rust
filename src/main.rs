@@ -1,5 +1,5 @@
 use std::net::TcpListener;
-use learning_rust::handle_connection;
+use learning_rust::connection;
 
 fn main() {
     let ip: &str = "127.0.0.1:7878";
@@ -8,6 +8,6 @@ fn main() {
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
-        handle_connection(stream);
+        connection::handle_connection(stream);
     }
 }
