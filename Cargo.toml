@@ -1,5 +1,7 @@
 [workspace]
-members = ["programs/*"]
+members = ["programs/*",
+    "programs/proced_macros/hello_macro",
+]
 
 [package]
 name = "learning_rust"

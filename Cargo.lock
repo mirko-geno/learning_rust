@@ -92,6 +92,18 @@ name = "hash_maps"
 version = "0.1.0"
 
 [[package]]
+name = "hello_macro"
+version = "0.1.0"
+
+[[package]]
+name = "hello_macro_derive"
+version = "0.1.0"
+dependencies = [
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "hmap_example"
 version = "0.1.0"
 
@@ -172,6 +184,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b3e4daa0dcf6feba26f985457cdf104d4b4256fc5a09547140f3631bb076b19a"
 dependencies = [
  "unicode-ident",
+]
+
+[[package]]
+name = "proced_macros"
+version = "0.1.0"
+dependencies = [
+ "hello_macro",
+ "hello_macro_derive",
 ]
 
 [[package]]
