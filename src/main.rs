@@ -5,23 +5,23 @@ use std::{
 };
 
 
-fn handle_request(request: String) -> (String, String) {
+fn handle_request<'a>(request: String) -> (&'a str, String) {
     match &request[..] {
         "GET / HTTP/1.1" => {    
             (
-                String::from("HTTP/1.1 200 OK"),
+                "HTTP/1.1 200 OK",
                 fs::read_to_string("html/example.html").unwrap()
             )
         },
         "GET /Bana HTTP/1.1" => {
             (
-                String::from("HTTP/1.1 200 OK"),
+                "HTTP/1.1 200 OK",
                 fs::read_to_string("html/easter_egg.html").unwrap()
             )
         },
         _ => {
             (
-                String::from("HTTP/1.1 404 NOT FOUND"),
+                "HTTP/1.1 404 NOT FOUND",
                 fs::read_to_string("html/404.html").unwrap()
             )
         }
