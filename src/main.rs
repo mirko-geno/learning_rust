@@ -1,4 +1,4 @@
-use std::net::TcpListener;
+use std::{net::TcpListener, thread::{self, JoinHandle}};
 use learning_rust::connection;
 
 fn main() {
@@ -8,6 +8,8 @@ fn main() {
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
-        connection::handle_connection(stream);
+        thread::spawn( || {
+            connection::handle_connection(stream)
+        });
     }
 }
